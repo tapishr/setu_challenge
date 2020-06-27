@@ -83,15 +83,15 @@ def fetch_bill():
     refID = ""
     if cust.amount > 0:
         refID = 'r' + secrets.token_hex(16)
-    # Store refID
-    tr = Transactions(refID)
-    tr.custID = cust.custID
-    try:
-        db.session.add(tr)
-        db.session.commit()
-    except Exception as e:
-        print(e)
-        # Keep trying to insert in Transactions table
+        # Store refID
+        tr = Transactions(refID)
+        tr.custID = cust.custID
+        try:
+            db.session.add(tr)
+            db.session.commit()
+        except Exception as e:
+            print(e)
+            # Keep trying to insert in Transactions table
     # Jsonify and send with proper code in case of error
     r = {
         "status": "SUCCESS",

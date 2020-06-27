@@ -122,7 +122,7 @@ def payment_update():
     body = request.get_json()
     verify_request_body(body, expected)
     try:
-        datetime.datetime.strptime(body["date"], '%Y-%m-%d')
+        datetime.datetime.strptime(body["transaction"]["date"], '%Y-%m-%d')
     except ValueError:
         raise SetuError(ErrorCodes.Invalid_api_parameters)
     # Check if this refid and transactionID is seen before, return result if already present

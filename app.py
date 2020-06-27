@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+""" app.py: Module for running server and handling requests
+    
+    Author: Tapish Rathore
+"""
 import os
 import secrets
 from flask import Flask, request, jsonify
@@ -19,13 +26,18 @@ from models import Transactions
 
 @app.errorhandler(SetuError)
 def handle_error_codes(error):
+    '''
+    error handling function for setting status codes and error body
+    '''
     response = jsonify(error.to_dict())
     response.status_code = error.httpcode
     return response
 
 
-# Decorator function for api key authorization
 def auth_key(view_function):
+    '''
+    Decorator function for api key authorization
+    '''
     @wraps(view_function)
     def decorated_function(*args, **kwargs):
         apikey = None
@@ -48,6 +60,9 @@ def auth_key(view_function):
 @app.route("/api/v1/fetch-bill", methods=["POST"])
 @auth_key
 def fetch_bill():
+    '''
+    Function for fetching bill of particular customer
+    '''
     expected = {
         "mobileNumber": ""
     }
@@ -92,6 +107,9 @@ def fetch_bill():
 @app.route("/api/v1/payment-update", methods=["POST"])
 @auth_key
 def payment_update():
+    '''
+    Function for updating payment of a customer
+    '''
     expected = {
         "refID": "",
         "transaction": {
@@ -122,7 +140,6 @@ def payment_update():
             cust = Customers.query.filter_by(custID=tr.custID).first()
             if not cust:
                 raise SetuError(ErrorCodes.Customer_not_found)
-            # TODO - int to float
             if new_amount != cust.amount:
                 raise SetuError(ErrorCodes.Amount_mismatch)
             cust.amount = 0
@@ -150,7 +167,10 @@ def payment_update():
 
 
 def verify_request_body(body, expected):
-    # Will not check for spurious fields in body that are not required
+    '''
+    Function for verifying if request body is correct.
+    Will not check for spurious fields in body that are not required
+    '''
     if not body:
         raise SetuError(ErrorCodes.Invalid_api_parameters)
     for k,v in expected.items():

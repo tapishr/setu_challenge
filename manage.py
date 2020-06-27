@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+""" manage.py: Module for managing the app and db servers
+    
+    Author: Tapish Rathore
+"""
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 

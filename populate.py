@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+""" populate.py: Script used to clear all tables and fill them with sample data from
+    users.json and customers.json in the same directory. To run, use - 
+    python populate.py
+    
+    Author: Tapish Rathore
+"""
 import json
 from app import db
 from models import Users

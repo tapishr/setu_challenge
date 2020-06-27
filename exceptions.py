@@ -1,7 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+""" exceptions.py: Module containing definitions of errors
+    
+    Author: Tapish Rathore
+"""
 from enum import Enum
 
 
 class SetuError(Exception):
+    """
+    Generic class for raising excpetions and returning error codes
+    """
     response_body = {
         "status": "ERROR",
         "errorCode": ""}

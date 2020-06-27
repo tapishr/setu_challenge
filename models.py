@@ -1,7 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+""" models.py: Module for declaring Tables and columns of the database
+    
+    Author: Tapish Rathore
+"""
 from app import db
 
 
 class Customers(db.Model):
+    """
+    Class encapsulating customers table, which contains information about customers
+    """
     __tablename__ = 'customers'
 
     name = db.Column(db.String(), nullable=False)
@@ -12,6 +22,9 @@ class Customers(db.Model):
 
 
 class Transactions(db.Model):
+    """
+    Class encapsulating transactions table, which records transaction details
+    """
     __tablename__ = 'transactions'
 
     refID = db.Column(db.String(), index=True)
@@ -26,6 +39,9 @@ class Transactions(db.Model):
 
 
 class Users(db.Model):
+    """
+    Class encapsulating users table, which contains information about users of the application
+    """
     __tablename__ = 'users'
 
     user = db.Column(db.String(), nullable=False)

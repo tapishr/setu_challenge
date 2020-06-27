@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+""" config.py: Module for declaring server configurations
+    
+    Author: Tapish Rathore
+"""
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 

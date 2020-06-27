@@ -1,0 +1,34 @@
+{
+    "customers":[
+        {
+            "customerName": "Adam",
+            "dueAmount": 2000,
+            "dueDate": "01-01-19",
+            "mobileNumber": "9898976767"
+        },
+        {
+            "customerName": "Beth",
+            "dueAmount": 1535,
+            "dueDate": "12-10-19",
+            "mobileNumber": "9894956327"
+        },
+        {
+            "customerName": "Cathy",
+            "dueAmount": 1950,
+            "dueDate": "06-08-19",
+            "mobileNumber": "9800970007"
+        },
+        {
+            "customerName": "Dave",
+            "dueAmount": 3540,
+            "dueDate": "03-11-19",
+            "mobileNumber": "8898974447"
+        },
+        {
+            "customerName": "Emily",
+            "dueAmount": 5500,
+            "dueDate": "11-01-20",
+            "mobileNumber": "7868574732"
+        }
+    ]
+}
